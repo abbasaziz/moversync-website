@@ -3,26 +3,53 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MoverSync | UK removals CRM</title>
-  <meta name="description" content="MoverSync captures removals leads, automates follow-ups, schedules crews and turns confirmed work into invoices from one simple CRM.">
-  <meta name="theme-color" content="#07111f">
+  <title>MoverSync | The CRM Built for UK Removals Companies</title>
+  <meta name="description" content="MoverSync pulls leads from all your providers into one pipeline. Quote faster, automate follow-ups, schedule crews, and invoice without the admin headache.">
+  <meta name="theme-color" content="#000000">
+  
+  <!-- SEO / AEO / LLM Optimization -->
   <link rel="canonical" href="https://moversync.co.uk/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="MoverSync | Turn enquiries into booked moves">
-  <meta property="og:description" content="A practical CRM for UK removals companies. Capture leads, quote faster, follow up, schedule work and invoice customers.">
+  <meta property="og:title" content="MoverSync for UK removals">
+  <meta property="og:description" content="Capture every lead, automate follow-ups, and schedule crews. One clear system for UK removals.">
   <meta property="og:url" content="https://moversync.co.uk/">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:image" content="https://moversync.co.uk/assets/og-image.png">
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Modular CSS -->
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/mockup.css">
+  
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Structured Data for LLMs and Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MoverSync",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "A CRM specifically built for UK removals companies. Integrates lead providers, automates follow-ups, and manages scheduling and invoicing.",
+    "offers": {
+      "@type": "Offer",
+      "price": "149.00",
+      "priceCurrency": "GBP"
+    }
+  }
+  </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" id="siteHeader">
     <div class="container nav-row">
       <a class="logo" href="#top" aria-label="MoverSync home">
-        <span class="logo-mark" aria-hidden="true"><span></span></span>
+        <span class="logo-mark" aria-hidden="true"></span>
         <span>Mover<span>Sync</span></span>
       </a>
       <nav class="desktop-nav" aria-label="Main navigation">
@@ -32,172 +59,516 @@
         <a href="#pricing">Pricing</a>
       </nav>
       <div class="nav-actions">
-        <a class="text-link desktop-only" href="mailto:peter@moversync.co.uk">peter@moversync.co.uk</a>
         <a class="button button-primary" href="demo.html">Try the live demo</a>
-        <button class="menu-button" id="menuButton" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+        <button class="menu-button" id="menuButton" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
       </div>
     </div>
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-      <a href="#platform">Platform</a><a href="#results">Results</a><a href="#compare">Compare</a><a href="#pricing">Pricing</a>
-      <a href="mailto:peter@moversync.co.uk">Email Peter</a>
+      <a href="#platform">Platform</a>
+      <a href="#results">Results</a>
+      <a href="#compare">Compare</a>
+      <a href="#pricing">Pricing</a>
+      <a href="demo.html" style="color: var(--blue); font-weight: 700;">Try the live demo</a>
     </nav>
   </header>
 
   <main id="main">
+    <!-- HERO SECTION -->
     <section class="hero" id="top">
-      <canvas id="routeCanvas" aria-hidden="true"></canvas>
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Built for UK removals teams</p>
-          <h1>Every enquiry.<br>Every follow-up.<br><span>One clear system.</span></h1>
-          <p class="hero-lead">MoverSync pulls leads from Pinlocal, Getamover, Sirelo, Triglobal and Compare My Move into one pipeline, then helps your team quote, chase, schedule and invoice without duplicate admin.</p>
-          <div class="button-row">
-            <a class="button button-primary button-large" href="demo.html">Open the interactive demo <span aria-hidden="true">→</span></a>
-            <a class="button button-secondary button-large" href="mailto:peter@moversync.co.uk?subject=MoverSync%20enquiry">Ask Peter a question</a>
-          </div>
-          <ul class="hero-checks" aria-label="Benefits">
-            <li>Working product demo</li><li>Setup around your process</li><li>Month-to-month plans</li>
-          </ul>
-        </div>
-        <div class="hero-product reveal" data-delay="120">
-          <div class="product-window">
-            <div class="window-top"><span class="window-brand">MoverSync</span><span class="live-pill">Live workspace</span></div>
-            <div class="mini-kpis">
-              <div><span>Booked revenue</span><strong>£48,620</strong><small>+£9,840 this month</small></div>
-              <div><span>Admin cost saved</span><strong>£1,460</strong><small>94 hours recovered</small></div>
-              <div><span>Quote conversion</span><strong>37.8%</strong><small>Up 8.6 points</small></div>
-            </div>
-            <div class="lead-stream">
-              <div class="stream-head"><b>Incoming leads</b><span>Auto-refreshing</span></div>
-              <article><span class="source-dot"></span><div><b>Oliver Shaw</b><small>Getamover · Manchester to York</small></div><strong>£1,240</strong><em>Assigned</em></article>
-              <article><span class="source-dot"></span><div><b>Amelia Khan</b><small>Compare My Move · Croydon to Reading</small></div><strong>£980</strong><em>Quote sent</em></article>
-              <article><span class="source-dot"></span><div><b>Jack Williams</b><small>Pinlocal · Bristol to Bath</small></div><strong>£1,760</strong><em>Follow-up due</em></article>
-            </div>
-            <div class="automation-line"><span>Lead received</span><i></i><span>Reply sent</span><i></i><span>Reminder set</span></div>
-          </div>
-          <div class="floating-note note-one"><span>New lead</span><b>Assigned in 18 seconds</b></div>
-          <div class="floating-note note-two"><span>Invoice paid</span><b>£1,420 received</b></div>
+      <div class="container hero-header">
+        <div class="pill-label">Built for UK removals teams</div>
+        <h1>Every enquiry. Every follow-up.<br><span>One clear system.</span></h1>
+        <p class="hero-lead">MoverSync pulls leads from Pinlocal, Getamover, Sirelo, Triglobal and Compare My Move into one pipeline, then helps your team quote, chase, schedule and invoice without duplicate admin.</p>
+        <div class="button-row">
+          <a class="button button-primary button-large" href="#app-mockup-section" id="scrollToMockup">See it in action</a>
+          <a class="button button-secondary button-large" href="demo.html">Open full demo</a>
         </div>
       </div>
-      <div class="container hero-stats" id="results">
-        <div><strong class="counter" data-target="98" data-suffix="%">0%</strong><span>leads captured automatically</span></div>
-        <div><strong class="counter" data-target="11" data-suffix=" hrs">0 hrs</strong><span>admin saved per office, weekly</span></div>
-        <div><strong class="counter" data-target="31" data-suffix="%">0%</strong><span>illustrative conversion uplift</span></div>
-        <div><strong class="counter" data-target="18400" data-prefix="£">£0</strong><span>illustrative annual cost saved</span></div>
+      
+      <!-- MODULAR INTERACTIVE MOCKUP -->
+      <div class="container hero-mockup-wrap reveal" id="app-mockup-section" data-delay="100">
+        <div class="macbook-frame">
+          <div class="macbook-bar">
+            <div class="macbook-dots">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="macbook-address">
+              <span class="lock-icon">🔒</span> app.moversync.co.uk/workspace
+            </div>
+            <div class="macbook-actions"></div>
+          </div>
+          
+          <div class="app-mockup">
+            <div class="app-header">
+              <div class="app-header-left">
+                <div class="app-logo"><span>M</span> MoverSync</div>
+                <div class="tenant-switcher">
+                  <div class="tenant-logo">DR</div>
+                  Deen Removals
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                </div>
+              </div>
+              <div class="app-ai-badge">
+                <span class="pulse-dot"></span> AI Automation Active
+              </div>
+              <div class="app-header-actions">
+                <div class="app-search"></div>
+                <div class="app-user"></div>
+              </div>
+            </div>
+            
+            <div class="app-body">
+              <aside class="app-sidebar">
+                <button class="nav-btn active" data-target="dashboard">
+                  <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                  Dashboard
+                </button>
+                <button class="nav-btn" data-target="leads">
+                  <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  Leads
+                </button>
+                <button class="nav-btn" data-target="outreach">
+                  <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  Outreach
+                </button>
+                <button class="nav-btn" data-target="quotes">
+                  <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                  Quotes
+                </button>
+                <button class="nav-btn" data-target="schedule">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  Schedule
+                </button>
+                <button class="nav-btn" data-target="invoices">
+                  <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  Invoices
+                </button>
+              </aside>
+
+              <div class="app-main">
+                <!-- 1. DASHBOARD VIEW -->
+                <div class="app-view active" id="view-dashboard">
+                  <div class="view-header">
+                    <h2>Workspace Overview</h2>
+                    <span class="view-sub live-indicator"><span class="pulse-dot green"></span> Live updates active</span>
+                  </div>
+                  
+                  <!-- Interactive AI Prompt -->
+                  <div class="ai-action-card" id="ai-approval-card">
+                    <div class="ai-action-content">
+                      <span class="ai-badge">✨ MoverSync AI</span>
+                      <p>I've calculated a quote for <b>Amelia Khan</b> (2-bed flat, 12 miles). Total: <b>£980</b>.</p>
+                    </div>
+                    <button class="btn-approve" id="btn-approve-quote">Approve & Send</button>
+                  </div>
+
+                  <div class="kpi-row">
+                    <div class="kpi">
+                      <span>Booked revenue</span>
+                      <strong id="dynamic-revenue">£48,620</strong>
+                      <small class="green" id="revenue-change">+£9,840 this month</small>
+                    </div>
+                    <div class="kpi">
+                      <span>Quote conversion</span>
+                      <strong>37.8%</strong>
+                      <small class="green">Up 8.6 points</small>
+                    </div>
+                    <div class="kpi">
+                      <span>Admin cost saved</span>
+                      <strong>£1,460</strong>
+                      <small>94 hours recovered</small>
+                    </div>
+                  </div>
+                  
+                  <div class="dashboard-grid">
+                    <div class="mock-panel">
+                      <div class="mock-panel-header">
+                        <span>Live Lead Pipeline</span>
+                        <span class="tiny-badge">Auto-assigning</span>
+                      </div>
+                      <div class="mock-pipeline" id="live-pipeline">
+                        <div class="mock-card incoming">
+                          <div class="mock-dot"></div>
+                          <div class="mock-lines"><b>New Lead: Oliver Shaw</b><span>Getamover · Manchester to York</span></div>
+                          <div class="mock-tag">£1,240</div>
+                        </div>
+                        <div class="mock-card processing">
+                          <div class="mock-dot"></div>
+                          <div class="mock-lines"><b>Quote Sent: Amelia Khan</b><span>Compare My Move · Croydon to Reading</span></div>
+                          <div class="mock-tag">£980</div>
+                        </div>
+                        <div class="mock-card booked">
+                          <div class="mock-dot"></div>
+                          <div class="mock-lines"><b>Booked: Jack Williams</b><span>Pinlocal · Bristol to Bath</span></div>
+                          <div class="mock-tag">£1,760</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2. LEADS VIEW -->
+                <div class="app-view" id="view-leads">
+                  <div class="view-header">
+                    <h2>Active Leads</h2>
+                    <span class="view-sub">Auto-updating statuses</span>
+                  </div>
+                  <div class="mock-table">
+                    <div class="mock-tr mock-th"><span>Name</span><span>Source</span><span>Status</span><span>Quote</span></div>
+                    <div class="mock-tr"><span>Oliver Shaw</span><span>Getamover</span><span class="badge blue" id="lead-status-1">New</span><span>£1,240</span></div>
+                    <div class="mock-tr"><span>Amelia Khan</span><span>Compare My Move</span><span class="badge grey">Contacted</span><span>£980</span></div>
+                    <div class="mock-tr"><span>Jack Williams</span><span>Pinlocal</span><span class="badge green">Booked</span><span>£1,760</span></div>
+                    <div class="mock-tr"><span>Sarah Jenkins</span><span>Sirelo</span><span class="badge grey">New</span><span>£850</span></div>
+                  </div>
+                </div>
+
+                <!-- 3. OUTREACH VIEW -->
+                <div class="app-view" id="view-outreach">
+                  <div class="view-header">
+                    <h2>Automated Outreach</h2>
+                    <span class="view-sub">Sequence: Quote Follow-up</span>
+                  </div>
+                  <div class="outreach-timeline">
+                    <div class="outreach-step complete">
+                      <div class="step-icon blue">1</div>
+                      <div class="step-content">
+                        <b>Initial Quote Sent</b>
+                        <span>Amelia Khan · 09:00 AM</span>
+                      </div>
+                    </div>
+                    <div class="outreach-line active"></div>
+                    <div class="outreach-step complete">
+                      <div class="step-icon blue">2</div>
+                      <div class="step-content">
+                        <b>Day 1 Follow-up</b>
+                        <span>Automated email sent · 09:00 AM</span>
+                      </div>
+                    </div>
+                    <div class="outreach-line active"></div>
+                    <div class="outreach-step processing">
+                      <div class="step-icon pulse">3</div>
+                      <div class="step-content">
+                        <b>Day 4 Check-in</b>
+                        <span class="typing">Drafting email to customer...</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 4. QUOTES VIEW -->
+                <div class="app-view" id="view-quotes">
+                  <div class="view-header">
+                    <h2>AI Quote Calculator</h2>
+                    <span class="view-sub">Calculating based on lead details</span>
+                  </div>
+                  <div class="mock-quote">
+                    <div class="quote-row"><span>Customer</span><b>Amelia Khan</b></div>
+                    <div class="quote-row"><span>Route (Distance)</span><b>CR0 to KT2 (12 miles)</b></div>
+                    <div class="quote-row"><span>Property Size</span><b>2 Bedroom Flat</b></div>
+                    
+                    <div class="quote-divider"></div>
+                    
+                    <div class="quote-calc-item">
+                      <span>Base Removal Service</span><b>£680.00</b>
+                    </div>
+                    <div class="quote-calc-item">
+                      <span>Packing Service</span><b>£150.00</b>
+                    </div>
+                    <div class="quote-calc-item ai-fade-in">
+                      <span>Seasonality Adjustment (Sept)</span><b class="red">+£150.00</b>
+                    </div>
+                    <div class="quote-calc-item ai-fade-in">
+                      <span>Access Difficulty (3rd Floor)</span><b class="red">+£100.00</b>
+                    </div>
+                    
+                    <div class="quote-total"><span>Total</span><b id="quote-total-val">Calculating...</b></div>
+                    <button class="btn-full" id="quote-send-btn" style="opacity: 0.5;">Approve & Send</button>
+                  </div>
+                </div>
+
+                <!-- 5. SCHEDULE VIEW -->
+                <div class="app-view" id="view-schedule">
+                  <div class="view-header">
+                    <h2>Operations Schedule</h2>
+                    <span class="view-sub">September 2026</span>
+                  </div>
+                  <div class="mini-calendar">
+                    <div class="cal-header">
+                      <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                    </div>
+                    <div class="cal-grid">
+                      <div class="cal-day"></div><div class="cal-day"></div>
+                      <div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div>
+                      <div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div>
+                      <div class="cal-day">13</div><div class="cal-day">14</div><div class="cal-day">15</div>
+                      <div class="cal-day active-date">16<div class="cal-event blue">Survey: Ian</div></div>
+                      <div class="cal-day active-date">17<div class="cal-event green">Move: Kitty</div></div>
+                      <div class="cal-day active-date">18<div class="cal-event green">Move: Aisha</div></div>
+                      <div class="cal-day">19</div>
+                    </div>
+                  </div>
+                  <div class="schedule-details">
+                    <div class="sched-card"><b>Thu 17th</b><span>Kitty Ray · Van 1 · 08:00</span></div>
+                    <div class="sched-card"><b>Fri 18th</b><span>Aisha Patel · Van 2 · 09:00</span></div>
+                  </div>
+                </div>
+
+                <!-- 6. INVOICES VIEW -->
+                <div class="app-view" id="view-invoices">
+                  <div class="view-header">
+                    <h2>Financials & Invoices</h2>
+                    <span class="view-sub">All active jobs</span>
+                  </div>
+                  <div class="invoice-summary">
+                    <div class="inv-box"><span>Total Booked</span><b>£48,620</b></div>
+                    <div class="inv-box"><span>Paid</span><b class="green">£31,840</b></div>
+                    <div class="inv-box"><span>Outstanding</span><b class="red">£16,780</b></div>
+                  </div>
+                  <div class="mock-table">
+                    <div class="mock-tr mock-th"><span>Invoice</span><span>Customer</span><span>Amount</span><span>Status</span></div>
+                    <div class="mock-tr"><span>INV-2098</span><span>Aisha Patel</span><span>£1,420</span><span class="badge grey">Sent</span></div>
+                    <div class="mock-tr"><span>INV-2097</span><span>Kitty Ray</span><span>£735</span><span class="badge green">Paid</span></div>
+                    <div class="mock-tr"><span>INV-2096</span><span>Robert Hall</span><span>£2,180</span><span class="badge red">Overdue</span></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="container data-note">Performance figures are representative examples based on configured workflows. Results vary by lead volume, staffing and sales process.</p>
     </section>
 
+    <!-- PLATFORM SECTION -->
     <section class="section light-section" id="platform">
       <div class="container">
-        <div class="section-heading split-heading reveal">
-          <div><p class="eyebrow">One connected workflow</p><h2>From new lead to paid invoice.</h2></div>
-          <p>No loose spreadsheets and no separate diary. Each customer record holds the source, quote, messages, tasks, move date, crew, payments and documents.</p>
+        <div class="section-heading reveal">
+          <h2>From new lead to paid invoice.</h2>
+          <p>No loose spreadsheets. No separate diaries. Every customer record holds the source, quote, messages, tasks, move date, crew, and payments in one place.</p>
         </div>
         <div class="workflow-grid">
-          <article class="workflow-card reveal"><span>01</span><h3>Capture</h3><p>Parse new enquiries from lead providers, website forms and email. Detect duplicates and assign the right salesperson.</p><b>Pinlocal · Getamover · Sirelo · Triglobal · Konnect You</b></article>
-          <article class="workflow-card reveal" data-delay="50"><span>02</span><h3>Convert</h3><p>Use consistent templates, quote from saved rules and run timed follow-ups until the prospect replies or opts out.</p><b>Email templates · Tasks · Reminders · Notes</b></article>
-          <article class="workflow-card reveal" data-delay="100"><span>03</span><h3>Deliver</h3><p>Put confirmed moves onto a shared calendar, allocate vehicles and crews, and prevent double bookings.</p><b>Calendar · Scheduling · Crew view · Job sheets</b></article>
-          <article class="workflow-card reveal" data-delay="150"><span>04</span><h3>Collect</h3><p>Turn accepted quotes into invoices, track deposits and balances, and see outstanding revenue immediately.</p><b>Invoices · Payments · Revenue · Reports</b></article>
+          <article class="workflow-card reveal">
+            <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m8 16 4-4 4 4"/></svg></div>
+            <h3>1. Capture</h3>
+            <p>Parse new enquiries from Getamover, Pinlocal, Compare My Move, and your website. Detect duplicates and assign the right salesperson instantly.</p>
+          </article>
+          <article class="workflow-card reveal" data-delay="80">
+            <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <h3>2. Convert</h3>
+            <p>Use consistent templates, quote from saved rules, and run timed follow-ups until the prospect replies or opts out.</p>
+          </article>
+          <article class="workflow-card reveal" data-delay="160">
+            <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg></div>
+            <h3>3. Deliver</h3>
+            <p>Put confirmed moves onto a shared calendar, allocate vehicles and crews, and prevent double bookings effortlessly.</p>
+          </article>
+          <article class="workflow-card reveal" data-delay="240">
+            <div class="icon-box"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <h3>4. Collect</h3>
+            <p>Turn accepted quotes into invoices, track deposits and balances, and see outstanding revenue immediately.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section product-section">
-      <div class="container">
-        <div class="section-heading reveal"><p class="eyebrow">The real interface</p><h2>Simple enough for the office. Detailed enough for the owner.</h2><p>Switch between the screens below, then open the full demo to use the system yourself.</p></div>
-        <div class="screen-tabs" role="tablist" aria-label="Product screenshots">
-          <button class="screen-tab active" role="tab" aria-selected="true" data-screen="leads">Lead dashboard</button>
-          <button class="screen-tab" role="tab" aria-selected="false" data-screen="record">Lead record</button>
-          <button class="screen-tab" role="tab" aria-selected="false" data-screen="reports">Reports</button>
-        </div>
-        <div class="screen-stage reveal">
-          <figure class="screen-panel active" data-panel="leads"><img src="assets/lead-dashboard.png" alt="MoverSync lead dashboard with customer status, move date, quote and assignee columns" width="1365" height="633" loading="lazy"><figcaption>See every new enquiry, next action, move date and owner at a glance.</figcaption></figure>
-          <figure class="screen-panel" data-panel="record"><img src="assets/lead-record.png" alt="MoverSync lead pricing and reconciliation screen" width="1365" height="685" loading="lazy"><figcaption>Keep pricing, services, payments and activity together in one customer record.</figcaption></figure>
-          <figure class="screen-panel" data-panel="reports"><img src="assets/reports.png" alt="MoverSync reports page with revenue, conversion and lead source charts" width="1365" height="646" loading="lazy"><figcaption>Track conversion, revenue, job value and lead sources without exporting a spreadsheet.</figcaption></figure>
-        </div>
-        <div class="centre"><a class="button button-primary button-large" href="demo.html">Use the full CRM demo <span aria-hidden="true">→</span></a></div>
-      </div>
-    </section>
-
-    <section class="section impact-section">
+    <!-- IMPACT SECTION -->
+    <section class="section impact-section" id="results">
       <div class="container impact-grid">
-        <div class="impact-copy reveal"><p class="eyebrow">Calculate the impact</p><h2>Put a value on missed follow-ups and admin.</h2><p>Adjust the sliders using your current numbers. The calculator separates recovered booking revenue from time-based operating savings.</p><div class="impact-assumption">Model assumption: automation helps recover 20% of currently lost quotes and saves 12 minutes per lead at £15 per admin hour.</div></div>
+        <div class="impact-copy reveal">
+          <h2>Put a value on missed follow-ups.</h2>
+          <p>Adjust the sliders using your current numbers. The calculator separates recovered booking revenue from time-based operating savings.</p>
+          <div class="impact-assumption">
+            Model assumption: automation helps recover 20% of currently lost quotes and saves 12 minutes per lead at £15 per admin hour.
+          </div>
+        </div>
         <div class="calculator reveal" data-delay="100">
-          <label>Monthly enquiries <output id="leadOutput">120</output><input id="leadRange" type="range" min="20" max="600" step="10" value="120"></label>
-          <label>Average move value <output id="valueOutput">£1,150</output><input id="valueRange" type="range" min="350" max="4000" step="50" value="1150"></label>
-          <label>Quotes currently lost <output id="lostOutput">35%</output><input id="lostRange" type="range" min="10" max="70" step="1" value="35"></label>
-          <div class="calculator-results"><div><span>Potential recovered revenue</span><strong id="revenueOutput">£0</strong><small>per year</small></div><div><span>Admin cost saved</span><strong id="savingOutput">£0</strong><small>per year</small></div></div>
+          <label>
+            Monthly enquiries
+            <output id="leadOutput">120</output>
+            <input id="leadRange" type="range" min="20" max="600" step="10" value="120">
+          </label>
+          <label>
+            Average move value
+            <output id="valueOutput">£1,150</output>
+            <input id="valueRange" type="range" min="350" max="4000" step="50" value="1150">
+          </label>
+          <label>
+            Quotes currently lost
+            <output id="lostOutput">35%</output>
+            <input id="lostRange" type="range" min="10" max="70" step="1" value="35">
+          </label>
+          <div class="calculator-results">
+            <div>
+              <span>Potential recovered revenue</span>
+              <strong id="revenueOutput">£0</strong>
+              <small>per year</small>
+            </div>
+            <div>
+              <span>Admin cost saved</span>
+              <strong id="savingOutput">£0</strong>
+              <small>per year</small>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section proof-section">
-      <div class="container">
-        <div class="section-heading split-heading reveal"><div><p class="eyebrow">Owner perspective</p><h2>Built around the way removals teams actually work.</h2></div><div class="slider-controls"><button id="storyPrev" type="button" aria-label="Previous story">←</button><button id="storyNext" type="button" aria-label="Next story">→</button></div></div>
-        <div class="story-viewport reveal"><div class="story-track" id="storyTrack">
-          <article class="story-card"><div class="company-avatar">DR</div><blockquote>“We moved from scattered inboxes and follow-up lists to one live pipeline. The team can see exactly who needs a call, which quote is open and what has been booked.”</blockquote><footer><b>Deen Removals and Storage Ltd</b><span>London</span><strong>More than £14,000 annual admin and lead leakage identified</strong></footer></article>
-          <article class="story-card"><div class="company-avatar">SR</div><blockquote>“The shared calendar made ownership clear. The office no longer has to ask which van or crew is free before confirming a move.”</blockquote><footer><b>Stars Removals and Storage Ltd</b><span>London</span><strong>Faster scheduling and fewer manual checks</strong></footer></article>
-          <article class="story-card"><div class="company-avatar">NM</div><blockquote>“Lead source reporting finally shows us what converts. We can spend on the channels that bring booked work instead of counting raw enquiries.”</blockquote><footer><b>Northline Moves</b><span>Manchester</span><strong>22% lower cost per booked move</strong></footer></article>
-          <article class="story-card"><div class="company-avatar">SM</div><blockquote>“Templates and timed reminders keep our response consistent even on a busy moving day. Nothing depends on one person remembering.”</blockquote><footer><b>Severn Move &amp; Store</b><span>Bristol</span><strong>9 office hours recovered each week</strong></footer></article>
-          <article class="story-card"><div class="company-avatar">CM</div><blockquote>“Deposits, balances and overdue invoices are visible next to each job. Month end is simpler because the records are already complete.”</blockquote><footer><b>Clyde Moving Co</b><span>Glasgow</span><strong>£8,600 overdue revenue surfaced</strong></footer></article>
-          <article class="story-card"><div class="company-avatar">TM</div><blockquote>“We can open a lead, see every message and hand it to another team member without losing the context. That is the difference.”</blockquote><footer><b>Tyne Move Logistics</b><span>Newcastle</span><strong>Response time reduced to under 3 minutes</strong></footer></article>
-        </div></div>
-        <div class="story-dots" id="storyDots" aria-label="Story slides"></div>
-        <p class="proof-note">Deen Removals and Storage Ltd and Stars Removals and Storage Ltd are named examples supplied for this page. Remaining company stories are illustrative placeholders and should be replaced with approved customer references before publication.</p>
-      </div>
-    </section>
-
+    <!-- COMPARISON SECTION -->
     <section class="section compare-section" id="compare">
       <div class="container">
-        <div class="section-heading reveal"><p class="eyebrow">Compare the stack</p><h2>One purpose-built system instead of several disconnected subscriptions.</h2><p>Competitor pricing changes by region, contract and add-ons. The table uses indicative entry positions and quote status, not guaranteed totals.</p></div>
-        <div class="table-wrap reveal"><table class="comparison-table">
-          <thead><tr><th>Capability</th><th class="featured">MoverSync</th><th>Pipedrive</th><th>HubSpot Sales Hub</th><th>SmartMoving</th><th>Supermove</th></tr></thead>
-          <tbody>
-            <tr><th>Indicative cost</th><td class="featured">From £149/month</td><td>Per user, tiered</td><td>Per seat, tiered</td><td>Quote required</td><td>Quote required</td></tr>
-            <tr><th>UK lead-provider intake</th><td class="featured">Included</td><td>Custom setup</td><td>Custom setup</td><td>Integration dependent</td><td>Integration dependent</td></tr>
-            <tr><th>Removals quote workflow</th><td class="featured">Included</td><td>Requires configuration</td><td>Requires configuration</td><td>Included</td><td>Included</td></tr>
-            <tr><th>Automated follow-ups</th><td class="featured">Included</td><td>Plan dependent</td><td>Plan dependent</td><td>Included</td><td>Included</td></tr>
-            <tr><th>Van and crew calendar</th><td class="featured">Included</td><td>External tool</td><td>External tool</td><td>Included</td><td>Included</td></tr>
-            <tr><th>Invoices and balances</th><td class="featured">Included</td><td>External tool</td><td>External tool</td><td>Included</td><td>Included</td></tr>
-            <tr><th>Configured for a UK operator</th><td class="featured">Yes</td><td>General CRM</td><td>General CRM</td><td>Moving software</td><td>Moving software</td></tr>
-            <tr><th>Full interactive demo</th><td class="featured"><a href="demo.html">Open now</a></td><td>Vendor trial</td><td>Vendor trial</td><td>Book demo</td><td>Book demo</td></tr>
-          </tbody>
-        </table></div>
-        <p class="table-note">Product names belong to their respective owners. Comparison is based on publicly described product positioning and may change. Confirm current pricing and features with each vendor.</p>
-      </div>
-    </section>
-
-    <section class="section pricing-section" id="pricing">
-      <div class="container">
-        <div class="section-heading reveal"><p class="eyebrow">Simple monthly pricing</p><h2>Start with the team you have. Upgrade when you need more capacity.</h2><p>Admin access is included and does not consume a user seat. All plans are billed monthly.</p></div>
-        <div class="pricing-grid">
-          <article class="price-card reveal"><p class="price-name">Starter</p><h3><span>£</span>149<small>/month</small></h3><p>For a small office that needs one reliable sales process.</p><ul><li>2 users plus admin</li><li>Lead inbox and provider parsing</li><li>Quotes and email templates</li><li>Automated follow-ups</li><li>Calendar and reminders</li><li>Invoices and balances</li></ul><a class="button button-secondary" href="mailto:peter@moversync.co.uk?subject=MoverSync%20Starter">Enquire about Starter</a></article>
-          <article class="price-card featured-price reveal" data-delay="60"><span class="popular">Most popular</span><p class="price-name">Growth</p><h3><span>£</span>249<small>/month</small></h3><p>For a growing sales and operations team that needs control.</p><ul><li>5 users plus admin</li><li>Everything in Starter</li><li>Van and crew scheduling</li><li>Team performance dashboard</li><li>Advanced lead-source reporting</li><li>Custom workflow rules</li><li>Priority email support</li></ul><a class="button button-primary" href="demo.html">Try the Growth demo</a></article>
-          <article class="price-card reveal" data-delay="120"><p class="price-name">Scale</p><h3><span>£</span>399<small>/month</small></h3><p>For established operators managing more people and work.</p><ul><li>10 users plus admin</li><li>Everything in Growth</li><li>Multiple branches and teams</li><li>Advanced permissions</li><li>Custom reports and exports</li><li>API and custom integrations</li><li>Onboarding and priority support</li></ul><a class="button button-secondary" href="mailto:peter@moversync.co.uk?subject=MoverSync%20Scale">Enquire about Scale</a></article>
+        <div class="section-heading reveal">
+          <h2>One system instead of several subscriptions.</h2>
+          <p>Competitor pricing changes by region and contract. The table uses indicative entry positions, not guaranteed totals.</p>
+        </div>
+        <div class="table-wrap reveal">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th class="featured">MoverSync</th>
+                <th>Generic CRMs</th>
+                <th>Legacy Moving Software</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th>UK lead-provider intake</th><td class="featured">Included</td><td>Custom setup</td><td>Integration dependent</td></tr>
+              <tr><th>Removals quote workflow</th><td class="featured">Included</td><td>Requires configuration</td><td>Included</td></tr>
+              <tr><th>Automated follow-ups</th><td class="featured">Included</td><td>Plan dependent</td><td>Included</td></tr>
+              <tr><th>Van and crew calendar</th><td class="featured">Included</td><td>External tool</td><td>Included</td></tr>
+              <tr><th>Invoices and balances</th><td class="featured">Included</td><td>External tool</td><td>Included</td></tr>
+              <tr><th>Configured for a UK operator</th><td class="featured">Yes</td><td>General CRM</td><td>Often outdated</td></tr>
+              <tr><th>Full interactive demo</th><td class="featured"><a href="demo.html">Open now</a></td><td>Vendor trial</td><td>Book demo</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
 
-    <section class="section faq-section">
-      <div class="container faq-grid"><div class="section-heading reveal"><p class="eyebrow">Common questions</p><h2>What owners usually ask first.</h2><a class="text-link" href="mailto:peter@moversync.co.uk">peter@moversync.co.uk</a></div><div class="faq-list reveal">
-        <details><summary>Can it receive leads from our current providers?</summary><p>Yes. MoverSync can parse structured lead emails and map them to a consistent customer record. The final setup depends on the format each provider sends to your business.</p></details>
-        <details><summary>Can we keep our existing email address?</summary><p>Yes. The CRM can be configured around your business mailbox and approved sender settings. Email activity stays attached to the relevant lead.</p></details>
-        <details><summary>Does the demo save real customer data?</summary><p>No. The public demo uses seeded example data in your browser. Refreshing the demo restores the default sample workspace.</p></details>
-        <details><summary>Can our process be customised?</summary><p>Yes. Statuses, templates, user roles, reminders, quote rules and reports can be configured around your operating process.</p></details>
-        <details><summary>Is there a long contract?</summary><p>The displayed plans are monthly. Any custom integration or migration work is agreed separately before work begins.</p></details>
-      </div></div>
+    <!-- PRICING SECTION -->
+    <section class="section pricing-section" id="pricing">
+      <div class="container">
+        <div class="section-heading reveal">
+          <h2>Simple monthly pricing.</h2>
+          <p>Start with the team you have. Upgrade when you need more capacity. Admin access is included.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card reveal">
+            <p class="price-name">Starter</p>
+            <h3><span>£</span>149<small>/month</small></h3>
+            <p>For a small office that needs one reliable sales process.</p>
+            <ul>
+              <li>2 users plus admin</li>
+              <li>Lead inbox and provider parsing</li>
+              <li>Quotes and email templates</li>
+              <li>Automated follow-ups</li>
+              <li>Calendar and reminders</li>
+              <li>Invoices and balances</li>
+            </ul>
+            <a class="button button-secondary" href="mailto:peter@moversync.co.uk?subject=MoverSync%20Starter">Enquire about Starter</a>
+          </article>
+          
+          <article class="price-card featured-price reveal" data-delay="80">
+            <span class="popular">Most popular</span>
+            <p class="price-name">Growth</p>
+            <h3><span>£</span>249<small>/month</small></h3>
+            <p>For a growing team that needs control and visibility.</p>
+            <ul>
+              <li>5 users plus admin</li>
+              <li>Everything in Starter</li>
+              <li>Van and crew scheduling</li>
+              <li>Team performance dashboard</li>
+              <li>Advanced lead-source reporting</li>
+              <li>Custom workflow rules</li>
+            </ul>
+            <a class="button button-primary" href="demo.html">Try the Growth demo</a>
+          </article>
+          
+          <article class="price-card reveal" data-delay="160">
+            <p class="price-name">Scale</p>
+            <h3><span>£</span>399<small>/month</small></h3>
+            <p>For established operators managing more people and work.</p>
+            <ul>
+              <li>10 users plus admin</li>
+              <li>Everything in Growth</li>
+              <li>Multiple branches and teams</li>
+              <li>Advanced permissions</li>
+              <li>Custom reports and exports</li>
+              <li>Onboarding and priority support</li>
+            </ul>
+            <a class="button button-secondary" href="mailto:peter@moversync.co.uk?subject=MoverSync%20Scale">Enquire about Scale</a>
+          </article>
+        </div>
+      </div>
     </section>
 
+    <!-- FAQ SECTION -->
+    <section class="section faq-section">
+      <div class="container faq-grid">
+        <div class="section-heading reveal">
+          <h2>Common questions.</h2>
+          <p>If you need anything else, email <a href="mailto:peter@moversync.co.uk" style="color: var(--blue); text-decoration: underline;">peter@moversync.co.uk</a>.</p>
+        </div>
+        <div class="faq-list reveal">
+          <details>
+            <summary>Can it receive leads from our current providers?</summary>
+            <p>Yes. MoverSync parses structured emails from providers like Getamover, Pinlocal, and Compare My Move, mapping them directly to a clean customer record.</p>
+          </details>
+          <details>
+            <summary>Does the demo save real customer data?</summary>
+            <p>No. The public demo uses seeded example data in your browser. Refreshing the demo restores the default sample workspace.</p>
+          </details>
+          <details>
+            <summary>Can our process be customised?</summary>
+            <p>Yes. Statuses, templates, user roles, reminders, quote rules, and reports can be configured around your exact operating process.</p>
+          </details>
+          <details>
+            <summary>Is there a long contract?</summary>
+            <p>No. All plans are billed monthly. Any custom integration or migration work is agreed separately before work begins.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
     <section class="final-cta">
-      <div class="container final-card reveal"><div><p class="eyebrow">See it before you discuss it</p><h2>Use the CRM demo with realistic UK removals data.</h2><p>Open leads, send a template, schedule a move, review invoices and inspect the dashboard. No sign-up required.</p></div><div class="final-actions"><a class="button button-light button-large" href="demo.html">Open the interactive demo</a><a href="mailto:peter@moversync.co.uk">peter@moversync.co.uk</a></div></div>
+      <div class="container final-card reveal">
+        <div>
+          <h2>See it before you discuss it.</h2>
+          <p>Use the CRM demo with realistic UK removals data. Open leads, send a template, schedule a move, and inspect the dashboard. No sign-up required.</p>
+        </div>
+        <div class="final-actions">
+          <a class="button button-light button-large" href="demo.html">Open the interactive demo</a>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-main"><a class="logo" href="#top"><span class="logo-mark" aria-hidden="true"><span></span></span><span>Mover<span>Sync</span></span></a><p>Lead, sales and operations software for UK removals companies.</p><nav><a href="#platform">Platform</a><a href="#compare">Compare</a><a href="#pricing">Pricing</a><a href="demo.html">Live demo</a><a href="mailto:peter@moversync.co.uk">Contact</a></nav></div>
-    <div class="container footer-base"><span>© <span id="year"></span> MoverSync</span><span>Enquiries: <a href="mailto:peter@moversync.co.uk">peter@moversync.co.uk</a></span></div>
+    <div class="container footer-main">
+      <a class="logo" href="#top">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span>Mover<span>Sync</span></span>
+      </a>
+      <p>Lead, sales and operations software for UK removals companies.</p>
+      <nav>
+        <a href="#platform">Platform</a>
+        <a href="#compare">Compare</a>
+        <a href="#pricing">Pricing</a>
+        <a href="demo.html">Live demo</a>
+      </nav>
+    </div>
+    <div class="container footer-base">
+      <span>© <span id="year"></span> MoverSync</span>
+      <span>Enquiries: <a href="mailto:peter@moversync.co.uk">peter@moversync.co.uk</a></span>
+    </div>
   </footer>
-  <script type="module" src="main.js"></script>
+
+  <!-- Modular JS -->
+  <script src="scripts/main.js"></script>
+  <script src="scripts/mockup.js"></script>
 </body>
 </html>
