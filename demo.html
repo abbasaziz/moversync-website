@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive CRM Demo | MoverSync</title>
+  <meta name="description" content="Try a working MoverSync CRM workspace with sample UK removals leads, follow-ups, calendar, scheduling and invoices.">
+  <meta name="theme-color" content="#07111f">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <div class="demo-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-head">
+        <a class="demo-logo" href="index.html" aria-label="MoverSync home"><span class="demo-logo-mark">M</span><span>Mover<b>Sync</b><small>Demo workspace</small></span></a>
+        <button class="sidebar-close" id="sidebarClose" type="button" aria-label="Close navigation">×</button>
+      </div>
+      <div class="workspace-card"><span class="workspace-badge">DR</span><div><b>Deen Removals</b><small>London · Demo account</small></div></div>
+      <nav class="demo-nav" aria-label="CRM navigation">
+        <p>Workspace</p>
+        <button class="nav-item active" type="button" data-view="dashboard"><span>⌂</span>Dashboard</button>
+        <button class="nav-item" type="button" data-view="leads"><span>◎</span>Leads <em id="leadNavCount">12</em></button>
+        <button class="nav-item" type="button" data-view="followups"><span>↻</span>Follow-ups <em id="followupNavCount">5</em></button>
+        <button class="nav-item" type="button" data-view="calendar"><span>□</span>Calendar</button>
+        <button class="nav-item" type="button" data-view="scheduling"><span>▱</span>Scheduling</button>
+        <p>Finance</p>
+        <button class="nav-item" type="button" data-view="invoices"><span>£</span>Invoices <em>4</em></button>
+        <button class="nav-item" type="button" data-view="reports"><span>⌁</span>Reports</button>
+        <p>System</p>
+        <button class="nav-item" type="button" data-view="templates"><span>✉</span>Email templates</button>
+        <button class="nav-item" type="button" data-view="settings"><span>⚙</span>Settings</button>
+      </nav>
+      <div class="sidebar-bottom"><a href="mailto:peter@moversync.co.uk?subject=MoverSync%20demo%20enquiry">Ask Peter about MoverSync</a><a href="index.html">Return to website</a></div>
+    </aside>
+
+    <div class="app-area">
+      <header class="app-header">
+        <button class="mobile-nav-toggle" id="mobileNavToggle" type="button" aria-label="Open navigation">☰</button>
+        <div class="global-search"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search leads, invoices or jobs" aria-label="Search CRM"></div>
+        <div class="header-actions"><button class="icon-button" id="notificationButton" type="button" aria-label="Notifications">♢<i>3</i></button><button class="user-menu" id="userMenuButton" type="button"><span>PA</span><div><b>Peter Adams</b><small>Administrator</small></div></button></div>
+      </header>
+
+      <main class="app-main">
+        <section class="app-view active" data-view-panel="dashboard">
+          <div class="page-head"><div><p class="page-kicker">Wednesday, 16 September 2026</p><h1>Good morning, Peter.</h1><p>Here is what needs attention across the business today.</p></div><div class="head-actions"><button class="secondary-action" type="button" data-open-modal="emailModal">Send email</button><button class="primary-action" type="button" data-open-modal="leadModal">+ New lead</button></div></div>
+          <div class="demo-notice"><span>Interactive demo</span><p>All names, contact details and financial records on this page are fictional sample data. Changes last until the page is refreshed.</p><button id="dismissNotice" type="button" aria-label="Dismiss notice">×</button></div>
+          <div class="kpi-grid">
+            <article class="kpi-card"><span>Revenue booked this month</span><strong>£48,620</strong><small>£9,840 above last month</small><div class="sparkline"><i style="height:35%"></i><i style="height:46%"></i><i style="height:42%"></i><i style="height:62%"></i><i style="height:58%"></i><i style="height:76%"></i><i style="height:91%"></i></div></article>
+            <article class="kpi-card"><span>Estimated admin cost saved</span><strong>£1,460</strong><small>94 hours automated</small><div class="kpi-progress"><i style="width:78%"></i></div></article>
+            <article class="kpi-card"><span>Quote to booking</span><strong>37.8%</strong><small>Up 8.6 points in 30 days</small><div class="kpi-progress"><i style="width:64%"></i></div></article>
+            <article class="kpi-card"><span>Open pipeline</span><strong>£32,940</strong><small>22 active opportunities</small><div class="kpi-progress"><i style="width:57%"></i></div></article>
+          </div>
+          <div class="dashboard-grid">
+            <article class="panel-card priority-panel"><div class="panel-head"><div><h2>Priority actions</h2><p>Ordered by urgency and booking value</p></div><button type="button" data-go-view="followups">View all</button></div><div id="priorityList" class="priority-list"></div></article>
+            <article class="panel-card source-panel"><div class="panel-head"><div><h2>Lead sources</h2><p>Enquiries received this month</p></div><select aria-label="Lead source period"><option>This month</option><option>Last month</option></select></div><div class="source-chart"><div class="donut-chart"><span>184<small>leads</small></span></div><ul><li><i style="--size:38%"></i><span>Compare My Move</span><b>38%</b></li><li><i style="--size:24%"></i><span>Getamover</span><b>24%</b></li><li><i style="--size:16%"></i><span>Pinlocal</span><b>16%</b></li><li><i style="--size:12%"></i><span>Sirelo</span><b>12%</b></li><li><i style="--size:10%"></i><span>Other</span><b>10%</b></li></ul></div></article>
+            <article class="panel-card upcoming-panel"><div class="panel-head"><div><h2>Upcoming moves</h2><p>Next three confirmed jobs</p></div><button type="button" data-go-view="calendar">Open calendar</button></div><div id="upcomingMoves"></div></article>
+            <article class="panel-card pipeline-panel"><div class="panel-head"><div><h2>Pipeline health</h2><p>Value by sales stage</p></div><button type="button" data-go-view="leads">Open pipeline</button></div><div class="pipeline-bars"><div><span>New leads</span><i><b style="width:86%"></b></i><strong>£12.6k</strong></div><div><span>Contacted</span><i><b style="width:62%"></b></i><strong>£9.1k</strong></div><div><span>Quote sent</span><i><b style="width:76%"></b></i><strong>£11.2k</strong></div><div><span>Survey booked</span><i><b style="width:42%"></b></i><strong>£6.2k</strong></div></div></article>
+          </div>
+        </section>
+
+        <section class="app-view" data-view-panel="leads">
+          <div class="page-head"><div><p class="page-kicker">Sales workspace</p><h1>Lead pipeline</h1><p id="leadSummary">12 active sample leads across all sources.</p></div><div class="head-actions"><button class="secondary-action" id="exportLeads" type="button">Export CSV</button><button class="primary-action" type="button" data-open-modal="leadModal">+ New lead</button></div></div>
+          <div class="filter-bar"><div class="table-search"><span>⌕</span><input id="leadSearch" type="search" placeholder="Search by customer, postcode or source"></div><select id="sourceFilter" aria-label="Filter by source"><option value="all">All sources</option><option>Compare My Move</option><option>Getamover</option><option>Pinlocal</option><option>Sirelo</option><option>Triglobal</option><option>Website</option></select><select id="statusFilter" aria-label="Filter by status"><option value="all">All statuses</option><option>New lead</option><option>Contacted</option><option>Quote sent</option><option>Survey booked</option><option>Booked</option></select><button id="clearFilters" type="button">Clear</button></div>
+          <div class="table-card"><table class="data-table"><thead><tr><th>Customer</th><th>Source</th><th>Status</th><th>Move date</th><th>Route</th><th>Quote</th><th>Owner</th><th></th></tr></thead><tbody id="leadTableBody"></tbody></table><div class="empty-state" id="leadEmpty" hidden><b>No leads found</b><span>Change the search or clear the filters.</span></div></div>
+        </section>
+
+        <section class="app-view" data-view-panel="followups">
+          <div class="page-head"><div><p class="page-kicker">Sales automation</p><h1>Follow-up queue</h1><p>Review what is due, preview the template and send each message.</p></div><button class="primary-action" id="sendAllDue" type="button">Send all due</button></div>
+          <div class="followup-layout"><div class="followup-list" id="followupList"></div><aside class="automation-card"><span class="automation-label">Active sequence</span><h2>Standard quote follow-up</h2><p>Stops automatically when the customer replies, books or opts out.</p><ol><li><b>Immediately</b><span>Quote confirmation</span></li><li><b>After 1 day</b><span>Availability reminder</span></li><li><b>After 4 days</b><span>Helpful check-in</span></li><li><b>After 9 days</b><span>Final availability note</span></li></ol><button type="button" data-go-view="templates">Edit templates</button></aside></div>
+        </section>
+
+        <section class="app-view" data-view-panel="calendar">
+          <div class="page-head"><div><p class="page-kicker">Operations diary</p><h1>Calendar</h1><p>Confirmed moves, surveys, callbacks and invoice due dates.</p></div><button class="primary-action" type="button" data-open-modal="scheduleModal">+ Schedule job</button></div>
+          <div class="calendar-card"><div class="calendar-toolbar"><div><button id="calendarPrev" type="button" aria-label="Previous month">←</button><button id="calendarToday" type="button">Today</button><button id="calendarNext" type="button" aria-label="Next month">→</button></div><h2 id="calendarTitle"></h2><div class="calendar-legend"><span>Move</span><span>Survey</span><span>Reminder</span></div></div><div class="calendar-week"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div><div class="calendar-grid" id="calendarGrid"></div></div>
+        </section>
+
+        <section class="app-view" data-view-panel="scheduling">
+          <div class="page-head"><div><p class="page-kicker">Fleet and crew</p><h1>Job scheduling</h1><p>Allocate vehicles and crews, then check available capacity.</p></div><button class="primary-action" type="button" data-open-modal="scheduleModal">+ Schedule job</button></div>
+          <div class="schedule-summary"><div><span>Vehicles available</span><b>4 of 6</b></div><div><span>Crew available</span><b>9 of 14</b></div><div><span>Scheduled revenue</span><b>£7,460</b></div><div><span>Unallocated jobs</span><b id="unallocatedCount">3</b></div></div>
+          <div class="schedule-board"><section><div class="board-head"><h2>Unallocated</h2><span>Drag or assign</span></div><div class="job-stack" id="unallocatedJobs"></div></section><section><div class="board-head"><h2>Vehicle schedule</h2><span>Thursday, 17 September</span></div><div class="vehicle-list" id="vehicleList"></div></section></div>
+        </section>
+
+        <section class="app-view" data-view-panel="invoices">
+          <div class="page-head"><div><p class="page-kicker">Finance</p><h1>Invoices and payments</h1><p>Track deposits, outstanding balances and overdue amounts.</p></div><button class="primary-action" type="button" data-open-modal="invoiceModal">+ New invoice</button></div>
+          <div class="invoice-kpis"><div><span>Paid this month</span><b>£31,840</b></div><div><span>Outstanding</span><b>£12,460</b></div><div><span>Overdue</span><b>£2,180</b></div><div><span>Deposits held</span><b>£6,920</b></div></div>
+          <div class="table-card"><table class="data-table"><thead><tr><th>Invoice</th><th>Customer</th><th>Issue date</th><th>Due date</th><th>Total</th><th>Balance</th><th>Status</th><th></th></tr></thead><tbody id="invoiceTableBody"></tbody></table></div>
+        </section>
+
+        <section class="app-view" data-view-panel="reports">
+          <div class="page-head"><div><p class="page-kicker">Management reporting</p><h1>Performance</h1><p>Revenue, source quality and team conversion for September.</p></div><button class="secondary-action" id="printReport" type="button">Print report</button></div>
+          <div class="report-kpis"><article><span>Total revenue</span><strong>£48,620</strong><small>+25.4% month on month</small></article><article><span>Revenue saved</span><strong>£10,780</strong><small>Attributed to automated follow-up</small></article><article><span>Average job value</span><strong>£1,351</strong><small>+£96 month on month</small></article><article><span>Cost per booking</span><strong>£42</strong><small>Down £11 month on month</small></article></div>
+          <div class="report-grid"><article class="panel-card"><div class="panel-head"><div><h2>Revenue trend</h2><p>Last 12 weeks</p></div></div><div class="large-bars" id="revenueBars"></div></article><article class="panel-card"><div class="panel-head"><div><h2>Conversion by source</h2><p>Booked leads divided by total leads</p></div></div><div class="conversion-list"><div><span>Website</span><i><b style="width:61%"></b></i><strong>61%</strong></div><div><span>Compare My Move</span><i><b style="width:44%"></b></i><strong>44%</strong></div><div><span>Getamover</span><i><b style="width:38%"></b></i><strong>38%</strong></div><div><span>Pinlocal</span><i><b style="width:32%"></b></i><strong>32%</strong></div><div><span>Sirelo</span><i><b style="width:27%"></b></i><strong>27%</strong></div></div></article><article class="panel-card team-report"><div class="panel-head"><div><h2>Team performance</h2><p>September activity</p></div></div><table><thead><tr><th>Team member</th><th>Leads</th><th>Booked</th><th>Conversion</th><th>Revenue</th></tr></thead><tbody><tr><td><span class="table-avatar">FA</span>Fawad Ali</td><td>48</td><td>19</td><td>39.6%</td><td>£24,680</td></tr><tr><td><span class="table-avatar">KM</span>Khunsha Malik</td><td>42</td><td>17</td><td>40.5%</td><td>£21,460</td></tr><tr><td><span class="table-avatar">WR</span>Wasiq Rahman</td><td>39</td><td>13</td><td>33.3%</td><td>£17,220</td></tr></tbody></table></article></div>
+        </section>
+
+        <section class="app-view" data-view-panel="templates">
+          <div class="page-head"><div><p class="page-kicker">Communications</p><h1>Email templates</h1><p>Reusable, plain-text messages for each stage of the move.</p></div><button class="primary-action" id="newTemplate" type="button">+ New template</button></div>
+          <div class="template-layout"><div class="template-list" id="templateList"></div><article class="template-editor"><div class="editor-head"><div><span>Editing template</span><h2 id="templateTitle">Quote confirmation</h2></div><button class="secondary-action" id="previewTemplate" type="button">Send test</button></div><label>Subject<input id="templateSubject" type="text"></label><label>Message<textarea id="templateBody" rows="15"></textarea></label><div class="merge-tags"><span>Insert field:</span><button type="button">{first_name}</button><button type="button">{move_date}</button><button type="button">{quote_total}</button><button type="button">{company_name}</button></div><button class="primary-action" id="saveTemplate" type="button">Save template</button></article></div>
+        </section>
+
+        <section class="app-view" data-view-panel="settings">
+          <div class="page-head"><div><p class="page-kicker">Configuration</p><h1>Workspace settings</h1><p>Demo controls for sources, automation and account preferences.</p></div><button class="primary-action" id="saveSettings" type="button">Save changes</button></div>
+          <div class="settings-grid"><article class="settings-card"><h2>Lead providers</h2><p>Choose which provider inboxes are active.</p><label><span>Compare My Move via Konnect You</span><input type="checkbox" checked></label><label><span>Getamover</span><input type="checkbox" checked></label><label><span>Pinlocal</span><input type="checkbox" checked></label><label><span>Sirelo</span><input type="checkbox" checked></label><label><span>Triglobal</span><input type="checkbox" checked></label></article><article class="settings-card"><h2>Automation</h2><p>Set default actions for incoming leads.</p><label><span>Auto-assign new leads</span><input type="checkbox" checked></label><label><span>Send immediate acknowledgement</span><input type="checkbox" checked></label><label><span>Create follow-up reminders</span><input type="checkbox" checked></label><label><span>Stop sequence on reply</span><input type="checkbox" checked></label><label><span>Notify owner of overdue quote</span><input type="checkbox" checked></label></article><article class="settings-card"><h2>Company profile</h2><label>Company name<input type="text" value="Deen Removals and Storage Ltd"></label><label>Reply-to email<input type="email" value="office@example-removals.co.uk"></label><label>Default deposit<select><option>10%</option><option>15%</option><option>20%</option></select></label><label>Currency<select><option>GBP (£)</option></select></label></article></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden></div>
+  <section class="modal" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle" hidden><div class="modal-head"><div><span>New opportunity</span><h2 id="leadModalTitle">Add a lead</h2></div><button type="button" data-close-modal aria-label="Close">×</button></div><form id="leadForm"><div class="form-grid"><label>First name<input name="firstName" required placeholder="Charlotte"></label><label>Last name<input name="lastName" required placeholder="Evans"></label><label>Email<input name="email" type="email" required placeholder="charlotte@example.co.uk"></label><label>Phone<input name="phone" required placeholder="+44 7700 900123"></label><label>Lead source<select name="source"><option>Website</option><option>Compare My Move</option><option>Getamover</option><option>Pinlocal</option><option>Sirelo</option><option>Triglobal</option></select></label><label>Move date<input name="moveDate" type="date" required></label><label>Moving from<input name="from" required placeholder="SW16 2AB"></label><label>Moving to<input name="to" required placeholder="RG1 4QA"></label><label>Estimated quote<input name="quote" type="number" min="0" step="10" value="950"></label><label>Assign to<select name="owner"><option>Fawad</option><option>Khunsha</option><option>Wasiq</option><option>Mohsib</option></select></label></div><div class="modal-actions"><button class="secondary-action" type="button" data-close-modal>Cancel</button><button class="primary-action" type="submit">Create lead</button></div></form></section>
+
+  <section class="modal wide-modal" id="recordModal" role="dialog" aria-modal="true" aria-labelledby="recordName" hidden><div class="modal-head record-modal-head"><div><span id="recordSource">Lead</span><h2 id="recordName">Customer record</h2><p id="recordContact"></p></div><button type="button" data-close-modal aria-label="Close">×</button></div><div class="record-tabs"><button class="active" type="button" data-record-tab="overview">Overview</button><button type="button" data-record-tab="messages">Messages</button><button type="button" data-record-tab="pricing">Pricing</button><button type="button" data-record-tab="activity">Activity</button></div><div class="record-content" id="recordContent"></div><div class="modal-actions"><button class="secondary-action" type="button" id="recordEmailButton">Send email</button><button class="primary-action" type="button" id="recordSaveButton">Save changes</button></div></section>
+
+  <section class="modal" id="emailModal" role="dialog" aria-modal="true" aria-labelledby="emailModalTitle" hidden><div class="modal-head"><div><span>Communication</span><h2 id="emailModalTitle">Send an email</h2></div><button type="button" data-close-modal aria-label="Close">×</button></div><form id="emailForm"><label>To<input id="emailTo" type="email" required placeholder="customer@example.co.uk"></label><label>Template<select id="emailTemplateSelect"></select></label><label>Subject<input id="emailSubject" type="text" required></label><label>Message<textarea id="emailBody" rows="11" required></textarea></label><div class="modal-actions"><button class="secondary-action" type="button" data-close-modal>Cancel</button><button class="primary-action" type="submit">Send email</button></div></form></section>
+
+  <section class="modal" id="scheduleModal" role="dialog" aria-modal="true" aria-labelledby="scheduleTitle" hidden><div class="modal-head"><div><span>Operations</span><h2 id="scheduleTitle">Schedule a job</h2></div><button type="button" data-close-modal aria-label="Close">×</button></div><form id="scheduleForm"><label>Job<select name="job"><option>Charlotte Evans · £950</option><option>Daniel Wright · £1,420</option><option>Isla Thompson · £780</option></select></label><label>Date<input name="date" type="date" value="2026-09-18" required></label><label>Vehicle<select name="vehicle"><option>Van 1 · Luton</option><option>Van 2 · Luton</option><option>Van 3 · 5.5 tonne</option><option>Van 4 · Transit</option></select></label><label>Crew<select name="crew"><option>Team A · Imran, Bilal, Kamran</option><option>Team B · Ali, Hamza, Rehan</option><option>Team C · Zain, Omar</option></select></label><div class="modal-actions"><button class="secondary-action" type="button" data-close-modal>Cancel</button><button class="primary-action" type="submit">Add to schedule</button></div></form></section>
+
+  <section class="modal" id="invoiceModal" role="dialog" aria-modal="true" aria-labelledby="invoiceTitle" hidden><div class="modal-head"><div><span>Finance</span><h2 id="invoiceTitle">Create an invoice</h2></div><button type="button" data-close-modal aria-label="Close">×</button></div><form id="invoiceForm"><label>Customer<select name="customer"><option>Charlotte Evans</option><option>Daniel Wright</option><option>Isla Thompson</option></select></label><label>Description<input name="description" value="Removal service"></label><div class="form-grid"><label>Amount<input name="amount" type="number" value="950"></label><label>Due date<input name="dueDate" type="date" value="2026-09-23"></label></div><label>Notes<textarea name="notes" rows="4" placeholder="Payment details or customer note"></textarea></label><div class="modal-actions"><button class="secondary-action" type="button" data-close-modal>Cancel</button><button class="primary-action" type="submit">Create invoice</button></div></form></section>
+
+  <div class="popover" id="notificationPopover" hidden><b>Notifications</b><button type="button"><span>Quote follow-up overdue</span><small>Daniel Wright · 18 minutes ago</small></button><button type="button"><span>Deposit received</span><small>£142 from Aisha Patel</small></button><button type="button"><span>New Getamover lead</span><small>Oliver Shaw · 4 minutes ago</small></button></div>
+  <div class="popover user-popover" id="userPopover" hidden><button type="button" data-go-view="settings">Workspace settings</button><a href="mailto:peter@moversync.co.uk">Contact MoverSync</a><a href="index.html">Exit demo</a></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="demo.js"></script>
+</body>
+</html>
