@@ -13,84 +13,153 @@ document.addEventListener('DOMContentLoaded', () => {
       if (targetView) {
         targetView.classList.add('active');
         
-        // Trigger specific animations when switching tabs
         if (btn.dataset.target === 'quotes') {
           triggerQuoteCalculation();
-        }
-        if (btn.dataset.target === 'dashboard') {
-          // Reset AI prompt if returning to dashboard
-          const aiCard = document.getElementById('ai-approval-card');
-          if (aiCard && aiCard.classList.contains('dismissed')) {
-             // Optional: bring it back after some time or leave it dismissed
-          }
         }
       }
     });
   });
 
-  // --- 2. Dashboard Interactive Flow ---
+  // --- 2. Dashboard Initial Setup ---
+  const pipeline = document.getElementById('live-pipeline');
+  
+  // Initial cards
+  const initialCards = [
+    { type: 'incoming', name: 'Oliver Shaw', source: 'Getamover', route: 'Manchester to York', price: '£1,240' },
+    { type: 'processing', name: 'Amelia Khan', source: 'Compare My Move', route: 'Croydon to Reading', price: '£980' },
+    { type: 'booked', name: 'Jack Williams', source: 'Pinlocal', route: 'Bristol to Bath', price: '£1,760' }
+  ];
+
+  function createCardHTML(data) {
+    let dotColor = 'var(--blue)';
+    let tagBg = 'var(--grey-light)';
+    let tagColor = 'var(--grey-mid)';
+    
+    if (data.type === 'incoming') { dotColor = 'var(--blue)'; tagBg = 'rgba(29, 92, 255, 0.1)'; tagColor = 'var(--blue)'; }
+    if (data.type === 'processing') { dotColor = '#d97706'; tagBg = '#fef3c7'; tagColor = '#d97706'; }
+    if (data.type === 'booked') { dotColor = 'var(--green)'; tagBg = '#ecfdf5'; tagColor = '#047857'; }
+
+    return `
+      <div class="mock-dot" style="background: ${dotColor};"></div>
+      <div class="mock-lines"><b>${data.name}</b><span>${data.source} · ${data.route}</span></div>
+      <div class="mock-tag" style="background: ${tagBg}; color: ${tagColor};">${data.price}</div>
+    `;
+  }
+
+  initialCards.forEach(card => {
+    const el = document.createElement('div');
+    el.className = `mock-card ${card.type}`;
+    el.innerHTML = createCardHTML(card);
+    pipeline.appendChild(el);
+  });
+
+  // --- 3. Interactive AI Approval Flow ---
   let revenue = 48620;
   const revenueEl = document.getElementById('dynamic-revenue');
   const approveBtn = document.getElementById('btn-approve-quote');
   const aiCard = document.getElementById('ai-approval-card');
-  const pipeline = document.getElementById('live-pipeline');
+  const aiContent = document.getElementById('ai-card-content');
+  const aiProcessing = document.getElementById('ai-processing-state');
+  
+  // AI Steps elements
+  const step1 = document.getElementById('step-1');
+  const step2 = document.getElementById('step-2');
+  const step3 = document.getElementById('step-3');
 
   if (approveBtn) {
     approveBtn.addEventListener('click', () => {
-      // 1. Visual Feedback on Button
-      approveBtn.textContent = 'Sending...';
-      approveBtn.style.background = 'var(--grey-mid)';
+      // 1. Hide content, show processing steps
+      aiContent.style.display = 'none';
+      approveBtn.style.display = 'none'; // hide button during process
+      aiProcessing.style.display = 'flex';
       
+      // 2. Animate Steps
       setTimeout(() => {
-        // 2. Dismiss AI Card
+        step1.classList.add('done');
+        step2.style.opacity = '1';
+      }, 1200);
+
+      setTimeout(() => {
+        step2.classList.add('done');
+        step3.style.opacity = '1';
+      }, 2400);
+
+      setTimeout(() => {
+        step3.classList.add('done');
+      }, 3600);
+
+      // 3. Complete Process
+      setTimeout(() => {
+        // Dismiss AI Card
         aiCard.classList.add('dismissed');
         
-        // 3. Update Revenue KPI
+        // Update Revenue
         revenue += 980;
         revenueEl.textContent = `£${revenue.toLocaleString('en-GB')}`;
         revenueEl.classList.add('flash');
         setTimeout(() => revenueEl.classList.remove('flash'), 1000);
 
-        // 4. Add the newly booked lead to the top of the pipeline
-        const newCard = document.createElement('div');
-        newCard.className = 'mock-card booked';
-        // inline style for the slide-in animation
-        newCard.style.animation = 'slideIn 0.5s forwards'; 
-        newCard.innerHTML = `
-          <div class="mock-dot" style="background: var(--green);"></div>
-          <div class="mock-lines"><b>Quote Accepted: Amelia Khan</b><span>Compare My Move · Croydon to Reading</span></div>
-          <div class="mock-tag" style="background: #ecfdf5; color: #047857;">£980</div>
-        `;
-        pipeline.prepend(newCard);
-        
-        // Optionally, remove the oldest card to keep the list tidy
-        if (pipeline.children.length > 4) {
-          pipeline.lastElementChild.remove();
+        // Remove the old "processing" Amelia Khan card
+        const existingAmelia = Array.from(pipeline.children).find(child => child.innerHTML.includes('Amelia Khan'));
+        if (existingAmelia) {
+          existingAmelia.classList.add('removing');
+          setTimeout(() => existingAmelia.remove(), 400); // wait for transition
         }
-      }, 800); 
+
+        // Add the newly booked lead after a slight delay to allow the removal to happen
+        setTimeout(() => {
+          const newCard = document.createElement('div');
+          newCard.className = 'mock-card booked new-entry';
+          newCard.innerHTML = createCardHTML({
+            type: 'booked',
+            name: 'Quote Accepted: Amelia Khan',
+            source: 'Compare My Move',
+            route: 'Croydon to Reading',
+            price: '£980'
+          });
+          pipeline.prepend(newCard);
+        }, 450);
+
+        // Reset AI Card for the next simulated task (optional, brings it back after 15s)
+        setTimeout(() => {
+           aiCard.classList.remove('dismissed');
+           aiContent.style.display = 'block';
+           approveBtn.style.display = 'block';
+           approveBtn.textContent = 'Approve and Send';
+           aiProcessing.style.display = 'none';
+           step1.classList.remove('done');
+           step2.classList.remove('done');
+           step2.style.opacity = '0';
+           step3.classList.remove('done');
+           step3.style.opacity = '0';
+        }, 15000);
+
+      }, 4800); // Wait for all steps to finish
     });
   }
 
-  // --- 3. Live Pipeline Auto-Updates (Simulating incoming leads) ---
+  // --- 4. Background Automation Simulation ---
+  // Every 15 seconds, a new lead slides into the top of the pipeline
   setInterval(() => {
     const dashboardView = document.getElementById('view-dashboard');
     if (!pipeline || !dashboardView.classList.contains('active')) return;
     
-    // Only add a new lead if we don't have too many
-    if (pipeline.children.length < 4) {
-      const newCard = document.createElement('div');
-      newCard.className = 'mock-card incoming';
-      newCard.style.animation = 'slideIn 0.5s forwards';
-      newCard.innerHTML = `
-        <div class="mock-dot" style="background: var(--blue);"></div>
-        <div class="mock-lines"><b>New Lead: Sarah Jenkins</b><span>Sirelo · London to Surrey</span></div>
-        <div class="mock-tag">£850</div>
-      `;
-      pipeline.prepend(newCard);
+    // Only add if we have less than 5 cards to prevent overflow
+    if (pipeline.children.length < 5 && aiCard.classList.contains('dismissed')) {
+      const el = document.createElement('div');
+      el.className = 'mock-card incoming new-entry';
+      el.innerHTML = createCardHTML({
+        type: 'incoming',
+        name: 'New Lead: Sarah Jenkins',
+        source: 'Sirelo',
+        route: 'London to Surrey',
+        price: '£850'
+      });
+      pipeline.prepend(el);
     }
-  }, 12000); // New lead every 12 seconds if on dashboard
+  }, 15000);
 
-  // --- 4. Quotes Calculation Animation ---
+  // --- 5. Quotes Calculation Animation (Unchanged) ---
   function triggerQuoteCalculation() {
     const calcItems = document.querySelectorAll('.quote-calc-item');
     const totalEl = document.getElementById('quote-total-val');
@@ -98,19 +167,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if(!calcItems.length) return;
     
-    // Reset
     calcItems.forEach(item => item.classList.remove('visible'));
     if(totalEl) totalEl.textContent = 'Calculating...';
     if(btn) btn.style.opacity = '0.5';
     
-    // Reveal items step by step
     calcItems.forEach((item, index) => {
       setTimeout(() => {
         item.classList.add('visible');
       }, (index + 1) * 400);
     });
 
-    // Final total
     setTimeout(() => {
       if(totalEl) totalEl.textContent = '£1,080.00';
       if(btn) btn.style.opacity = '1';

@@ -162,16 +162,28 @@
                 <div class="app-view active" id="view-dashboard">
                   <div class="view-header">
                     <h2>Workspace Overview</h2>
-                    <span class="view-sub live-indicator"><span class="pulse-dot green"></span> Live updates active</span>
+                    <span class="view-sub live-indicator"><span class="pulse-dot green"></span> System active</span>
                   </div>
                   
                   <!-- Interactive AI Prompt -->
                   <div class="ai-action-card" id="ai-approval-card">
-                    <div class="ai-action-content">
-                      <span class="ai-badge">✨ MoverSync AI</span>
-                      <p>I've calculated a quote for <b>Amelia Khan</b> (2-bed flat, 12 miles). Total: <b>£980</b>.</p>
+                    <div class="ai-action-content" id="ai-card-content">
+                      <span class="ai-badge">MoverSync AI</span>
+                      <p>I have calculated a quote for <b>Amelia Khan</b> (2-bed flat, 12 miles). Total: <b>£980</b>.</p>
                     </div>
-                    <button class="btn-approve" id="btn-approve-quote">Approve & Send</button>
+                    <!-- AI Processing State (Hidden initially) -->
+                    <div class="ai-processing-state" id="ai-processing-state" style="display: none;">
+                      <div class="ai-step" id="step-1">
+                        <span class="spinner"></span> Calculating optimal route and mileage...
+                      </div>
+                      <div class="ai-step" id="step-2" style="opacity: 0;">
+                        <span class="spinner"></span> Assigning available crew for 18 Sep...
+                      </div>
+                      <div class="ai-step" id="step-3" style="opacity: 0;">
+                        <span class="spinner"></span> Drafting personalised quote email...
+                      </div>
+                    </div>
+                    <button class="btn-approve" id="btn-approve-quote">Approve and Send</button>
                   </div>
 
                   <div class="kpi-row">
@@ -199,21 +211,7 @@
                         <span class="tiny-badge">Auto-assigning</span>
                       </div>
                       <div class="mock-pipeline" id="live-pipeline">
-                        <div class="mock-card incoming">
-                          <div class="mock-dot"></div>
-                          <div class="mock-lines"><b>New Lead: Oliver Shaw</b><span>Getamover · Manchester to York</span></div>
-                          <div class="mock-tag">£1,240</div>
-                        </div>
-                        <div class="mock-card processing">
-                          <div class="mock-dot"></div>
-                          <div class="mock-lines"><b>Quote Sent: Amelia Khan</b><span>Compare My Move · Croydon to Reading</span></div>
-                          <div class="mock-tag">£980</div>
-                        </div>
-                        <div class="mock-card booked">
-                          <div class="mock-dot"></div>
-                          <div class="mock-lines"><b>Booked: Jack Williams</b><span>Pinlocal · Bristol to Bath</span></div>
-                          <div class="mock-tag">£1,760</div>
-                        </div>
+                        <!-- Cards will be injected here by JS, starting with a base set -->
                       </div>
                     </div>
                   </div>
